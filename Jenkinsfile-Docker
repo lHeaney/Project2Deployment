@@ -5,14 +5,15 @@ pipeline {
         {
             steps{
                 //this is for comments
-            }
+            
             sh '''
                 echo "Build Image: aws-cli"
-                docker build -f aws-docker/Dockerfile -t aws-cli .
+                docker build -f ./Dockerfile -t aws-cli .
 
                 #future database for docker build
                 echo "Building Docker Image $DOCKER_IMAGE"
             '''
+            }
         }
     }
 }
