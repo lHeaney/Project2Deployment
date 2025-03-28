@@ -11,7 +11,7 @@ pipeline {
             steps {
                 withCredentials(
                     [usernamePassword
-                        (credentialsId: 'ecdebb42-7c57-4748-bfea-d807ea556190', 
+                        (credentialsId: '8049ffbf-2561-42cf-933b-881cc054284e', 
                         passwordVariable: 'AWS_SECRET_ACCESS_KEY', 
                         usernameVariable: 'AWS_ACCESS_KEY_ID')
                     ]
