@@ -4,7 +4,7 @@ pipeline {
         stage('AWS CLI'){
             agent {
                 docker {
-                    image 'aws/cli'
+                    image 'amazon/aws-cli'
                     args "--entrypoint=''"
                 }
             }
