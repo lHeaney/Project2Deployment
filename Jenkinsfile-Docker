@@ -8,7 +8,7 @@ pipeline {
             
             sh '''
                 echo "Build Image: aws-cli"
-                docker build -f ./Dockerfile -t aws-cli .
+                docker build -f ./Jenkinsfile -t aws-cli .
 
                 #future database for docker build
                 echo "Building Docker Image $DOCKER_IMAGE"
