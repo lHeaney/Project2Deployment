@@ -5,14 +5,23 @@ pipeline {
         {
             steps{
                 //this is for comments
-            
-            sh '''
+            withCredentials(
+                    [usernamePassword
+                        (credentialsId: '8049ffbf-2561-42cf-933b-881cc054284e', 
+                        passwordVariable: 'AWS_SECRET_ACCESS_KEY', 
+                        usernameVariable: 'AWS_ACCESS_KEY_ID')
+                    ]
+            )
+            {
+                sh '''
                 echo "Build Image: aws-cli"
                 docker build -f AWS-Docker/Dockerfile -t aws-cli .
 
                 #future database for docker build
                 echo "Building Docker Image $DOCKER_IMAGE"
-            '''
+                ''' 
+            }
+            
         }
         }
     }
