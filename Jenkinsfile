@@ -1,15 +1,14 @@
 pipeline {
     agent any 
-    stages{
+    stages {
         stage('AWS CLI'){
-            agent{
-                docker{
+            agent {
+                docker {
                     image 'aws/cli'
-                    arge "--entrypoing=''"
+                    arge "--entrypoint=''"
                 }
             }
-            
-            steps{
+            steps {
                 withCredentials(
                     [usernamePassword
                         (credentialsId: 'ecdebb42-7c57-4748-bfea-d807ea556190', 
@@ -17,15 +16,13 @@ pipeline {
                         usernameVariable: 'AWS_ACCESS_KEY_ID')
                     ]
                 ){
-                   sh ''' 
-                   Listing AWS CLi Version...
-                   aws --version
-                   '''
+                sh ''' 
+                Listing AWS CLi Version...
+                aws --version
+                '''
                 }
-
-
-                
             }
         }
+        
     }
 }
