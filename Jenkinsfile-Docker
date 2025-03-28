@@ -1,19 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage ('build Docker Images')
+        stage ('Build Docker Images')
         {
             steps{
                 //this is for comments
             
             sh '''
                 echo "Build Image: aws-cli"
-                docker build -f ./Jenkinsfile -t aws-cli .
+                docker build -f AWS-Docker/Dockerfile -t aws-cli .
 
                 #future database for docker build
                 echo "Building Docker Image $DOCKER_IMAGE"
             '''
-            }
+        }
         }
     }
 }
