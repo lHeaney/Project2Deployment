@@ -12,13 +12,17 @@ pipeline {
         stage('SonarQube Analysis')
         {
            environment{
-            SONAR_SCANNER_HOME=""
+            SONAR_SCANNER_HOME= tool 'Sonar'
            }
            steps{
-            with('')
+            with('Sonar')
             {
                 sh '''
-
+                    $(SONAR_SCANNER_HOME)/bin/sonar-scanner \
+                    -Dsonar.projectName = "jenkins_scan" \
+                    -Dsonar.projectKey = "jenkins_scan" \
+                    -Dsonar.projectVersion ="1.0" \
+                    -Dsonar.sources=. \
 
 
                 '''
