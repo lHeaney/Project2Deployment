@@ -15,7 +15,7 @@ pipeline {
             SONAR_SCANNER_HOME= tool 'Sonar'
            }
            steps{
-            with('Sonar')
+            withSonarQubeAnalysis('Sonar')
             {
                 sh '''
                     $(SONAR_SCANNER_HOME)/bin/sonar-scanner \
