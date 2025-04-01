@@ -24,7 +24,7 @@ pipeline {
                     -Dsonar.projectVersion ="1.0" \
                     -Dsonar.sources=. \
 
-
+                    echo "Code Scanning Completed, check SonarQube for details..."
                 '''
             }
            }
