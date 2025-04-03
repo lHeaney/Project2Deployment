@@ -76,12 +76,13 @@ pipeline {
             //             passwordVariable: 'AWS_SECRET_ACCESS_KEY', 
             //             usernameVariable: 'AWS_ACCESS_KEY_ID')
             //         ]
-            //     ){
-            //         sh ''' 
-            //         echo "Listing AWS CLi Version..."
-            //         aws --version
-            //         '''
-            //     }
+            //     )
+                {
+                    sh ''' 
+                    echo "Listing AWS CLi Version..."
+                    aws --version
+                    '''
+                }
             }
         }
     }
