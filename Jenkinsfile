@@ -18,9 +18,10 @@ pipeline {
             }
             steps {
                     sh ''' 
-                    cd .\CPA-API\
+                    cd ./CPA-API/
                     docker build -t backend .
                     docker run -p 5505:5505 backend
+                    cd ..
                     '''
             }
         }
@@ -30,7 +31,7 @@ pipeline {
             }
             steps{
                 sh ''' 
-                    cd .\CPA-FRONTEND\
+                    cd ./CPA-FRONTEND/
                     docker build -t frontend .
                     docker run -p 3000:3000 frontend
                     '''
