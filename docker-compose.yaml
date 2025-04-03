@@ -35,14 +35,14 @@ services:
       - "50000:50000"
     networks:
       - jenkins
-  frontend:
-    build: ./CPA-FrontEnd/
-    ports:
-      - "3000:3000"
-  backend:
-    build: ./CPA-API/
-    ports:
-      - "5505:5505"
+  # frontend:
+  #   build: ./CPA-FrontEnd/
+  #   ports:
+  #     - "3000:3000"
+  # backend:
+  #   build: ./CPA-API/
+  #   ports:
+  #     - "5505:5505"
 
 networks:
   jenkins:
