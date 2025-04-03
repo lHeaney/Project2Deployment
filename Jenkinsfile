@@ -63,12 +63,12 @@ pipeline {
     //         }
     //     }
         stage('AWS CLI'){
-            agent {
-                docker {
-                    image 'aws-cli'
-                    args "--entrypoint=''"
-                }
-            }
+            // agent {
+            //     docker {
+            //         image 'aws-cli'
+            //         args "--entrypoint=''"
+            //     }
+            // }
             steps {
                 withCredentials(
                     [usernamePassword
