@@ -12,7 +12,7 @@ pipeline {
             agent{
                 docker{
                     image 'docker'
-                    args "--entrypoint=''"
+                    // args "--entrypoint=''"
                 }
             }
             steps{
@@ -21,52 +21,52 @@ pipeline {
                 '''
             }
         }
-        stage('API'){
-            agent {
-                docker {
-                    image 'frontend'
-                    args "--entrypoint=''"
-                }
-            }
-            steps {
-                    sh ''' 
-                    cd ./CPA-API/
-                    docker build -t backend -v /var/run/docker.sock:/var/run/docker.sock .
-                    docker run -p 5505:5505 backend
-                    cd ..
-                    '''
-            }
-        }
-        stage('FrontEnd'){
-            agent{
-                docker {
-                    image 'backend'
-                    args "--entrypoint=''"
-                }
-            }
-            steps{
-                sh ''' 
-                    cd ./CPA-FRONTEND/
-                    docker build -t frontend -v /var/run/docker.sock:/var/run/docker.sock .
-                    docker run -p 3000:3000 frontend
-                    '''
-            }
-        }
-        stage('SQL Database')
-        {
-            agent{
-                docker{
-                    image 'cpa-database'
-                }
-            }
-            steps{
-                sh '''
+        // stage('API'){
+        //     agent {
+        //         docker {
+        //             image 'frontend'
+        //             args "--entrypoint=''"
+        //         }
+        //     }
+        //     steps {
+        //             sh ''' 
+        //             cd ./CPA-API/
+        //             docker build -t backend -v /var/run/docker.sock:/var/run/docker.sock .
+        //             docker run -p 5505:5505 backend
+        //             cd ..
+        //             '''
+        //     }
+        // }
+        // stage('FrontEnd'){
+        //     agent{
+        //         docker {
+        //             image 'backend'
+        //             args "--entrypoint=''"
+        //         }
+        //     }
+        //     steps{
+        //         sh ''' 
+        //             cd ./CPA-FRONTEND/
+        //             docker build -t frontend -v /var/run/docker.sock:/var/run/docker.sock .
+        //             docker run -p 3000:3000 frontend
+        //             '''
+        //     }
+        // }
+        // stage('SQL Database')
+        // {
+        //     agent{
+        //         docker{
+        //             image 'cpa-database'
+        //         }
+        //     }
+        //     steps{
+        //         sh '''
 
-                docker run -p 5507:5507 --name my-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -e MYSQL_DATABASE=mydb -d mysql:latest
-                docker exec -it cpa-database bash
-                '''
-            }
+        //         docker run -p 5507:5507 --name my-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -e MYSQL_DATABASE=mydb -d mysql:latest
+        //         docker exec -it cpa-database bash
+        //         '''
+        //     }
             
-        }
+        // }
     }
 }
