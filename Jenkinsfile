@@ -77,12 +77,12 @@ pipeline {
             //             usernameVariable: 'AWS_ACCESS_KEY_ID')
             //         ]
             //     )
-                {
+                // {
                     sh ''' 
                     echo "Listing AWS CLi Version..."
                     aws --version
                     '''
-                }
+                // }
             }
         }
     }
