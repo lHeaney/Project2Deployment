@@ -11,7 +11,7 @@ pipeline {
         {
             agent{
                 docker{
-                    image 'Docker'
+                    image 'docker'
                     args "--entrypoint=''"
                 }
             }
