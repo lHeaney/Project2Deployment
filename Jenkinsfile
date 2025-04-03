@@ -7,20 +7,28 @@ pipeline {
     }
 
     stages {
-        stage('Jenkins')
+        stage('build')
         {
             agent{
-                docker{
-                    image 'docker'
-                     args "-u root -v /var/run/docker.sock:/var/run/docker.sock --entrypoint=''"
+                script{
+                    docker compose up
                 }
             }
-            steps{
-                sh '''
-                docker compose up
-                '''
-            }
         }
+        // stage('Jenkins')
+        // {
+        //     agent{
+        //         docker{
+        //             image 'docker'
+        //              args "-u root -v /var/run/docker.sock:/var/run/docker.sock --entrypoint=''"
+        //         }
+        //     }
+        //     steps{
+        //         sh '''
+        //         docker compose up
+        //         '''
+        //     }
+        // }
         // stage('API'){
         //     agent {
         //         docker {

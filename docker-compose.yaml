@@ -14,8 +14,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - "2376:2376"
-      - "5505:5505"
-      - "3000:3000"
     networks:
       jenkins:
         aliases:
@@ -36,9 +34,16 @@ services:
     ports:
       - "8080:8080"
       - "50000:50000"
-      - "3000:3000"
     networks:
       - jenkins
+  frontend:
+    build: ./CPA-FrontEnd/
+    ports:
+      - "3000:3000"
+  backend:
+    build: ./CPA-API/
+    ports:
+      - "5505:5505"
 
 networks:
   jenkins:
