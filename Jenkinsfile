@@ -8,19 +8,19 @@ pipeline {
 //         APP_NAME = "cpa-project2-app"
 //     }
 
-//     stages {
-//         stage('CPA'){
-//             agent {
-//                 docker {
-//                     image 'frontend'
-//                     args "--entrypoint=''"
-//                 }
-//             }
-//             steps {
-//                     sh ''' 
+    stages {
+        stage('CPA'){
+            agent {
+                docker {
+                    image 'frontend'
+                    args "--entrypoint=''"
+                }
+            }
+            steps {
+                    sh ''' 
                     
-//                     '''
-//             }
-//         }
+                    '''
+            }
+        }
     // }
 }
