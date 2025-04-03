@@ -62,14 +62,14 @@ pipeline {
     //             }
     //         }
     //     }
-        stage('AWS CLI'){
+        stage('CPA'){
             // agent {
             //     docker {
             //         image 'aws-cli'
             //         args "--entrypoint=''"
             //     }
             // }
-            // steps {
+            steps {
             //     withCredentials(
             //         [usernamePassword
             //             (credentialsId: '8049ffbf-2561-42cf-933b-881cc054284e', 
@@ -82,7 +82,7 @@ pipeline {
             //         aws --version
             //         '''
             //     }
-            // }
+            }
         }
     }
 }
