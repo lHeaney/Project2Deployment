@@ -19,7 +19,7 @@ pipeline {
             steps {
                     sh ''' 
                     cd ./CPA-API/
-                    docker build -t backend .
+                    docker build -t backend -v /var/run/docker.sock:/var/run/docker.sock .
                     docker run -p 5505:5505 backend
                     cd ..
                     '''
@@ -35,7 +35,7 @@ pipeline {
             steps{
                 sh ''' 
                     cd ./CPA-FRONTEND/
-                    docker build -t frontend .
+                    docker build -t frontend -v /var/run/docker.sock:/var/run/docker.sock .
                     docker run -p 3000:3000 frontend
                     '''
             }
