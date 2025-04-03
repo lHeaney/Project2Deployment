@@ -9,7 +9,7 @@ pipeline {
 //     }
 
     stages {
-        stage('CPA'){
+        stage('API'){
             agent {
                 docker {
                     image 'frontend'
@@ -18,7 +18,21 @@ pipeline {
             }
             steps {
                     sh ''' 
-                    
+                    cd .\CPA-API\
+                    docker build -t backend .
+                    docker run -p 5505:5505 backend
+                    '''
+            }
+        }
+        stage('FrontEnd'){
+            agent{
+
+            }
+            steps{
+                sh ''' 
+                    cd .\CPA-FRONTEND\
+                    docker build -t frontend .
+                    docker run -p 3000:3000 frontend
                     '''
             }
         }
