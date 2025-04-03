@@ -9,6 +9,20 @@ pipeline {
 //     }
 
     stages {
+        stage('Jenkins')
+        {
+            agent{
+                docker{
+                    image 'Docker'
+                    args "--entrypoint=''"
+                }
+            }
+            steps{
+                sh '''
+                docker compose up
+                '''
+            }
+        }
         stage('API'){
             agent {
                 docker {
