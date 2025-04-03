@@ -10,9 +10,14 @@ pipeline {
         stage('build')
         {
             agent{
-                script{
-                    docker compose up
+                docker{
+                    image 'docker'
                 }
+            }
+            steps{
+                sh '''
+                docker compose up
+                '''
             }
         }
         // stage('Jenkins')
