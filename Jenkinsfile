@@ -9,11 +9,7 @@ pipeline {
     stages {
         stage('build')
         {
-            agent{
-                docker{
-                    image 'docker'
-                }
-            }
+            agent any
             steps{
                 sh '''
                 docker compose up
