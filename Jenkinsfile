@@ -27,7 +27,10 @@ pipeline {
         }
         stage('FrontEnd'){
             agent{
-
+                docker {
+                    image 'backend'
+                    args "--entrypoint=''"
+                }
             }
             steps{
                 sh ''' 
