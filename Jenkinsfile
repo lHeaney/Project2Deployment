@@ -58,14 +58,15 @@ pipeline {
                 docker{
                     image = 'cpa-database'
                 }
-                steps{
-                    sh '''
-
-                    docker run -p 5507:5507 --name my-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -e MYSQL_DATABASE=mydb -d mysql:latest
-                    docker exec -it cpa-database bash
-                    '''
-                }
             }
+            steps{
+                sh '''
+
+                docker run -p 5507:5507 --name my-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -e MYSQL_DATABASE=mydb -d mysql:latest
+                docker exec -it cpa-database bash
+                '''
+            }
+            
         }
     }
 }
