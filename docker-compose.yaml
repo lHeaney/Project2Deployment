@@ -53,6 +53,8 @@ services:
       ACCEPT_EULA: Y
     ports:
       - "5505:5505"
+    volumes:
+      - "./MySQL/SQL_SCHEMA_SCRIPT.sql:/docker-entrypoint-initdb.d/1.sql"
 
 networks:
   jenkins:
