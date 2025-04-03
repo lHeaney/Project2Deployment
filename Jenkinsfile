@@ -56,7 +56,7 @@ pipeline {
         {
             agent{
                 docker{
-                    image = 'cpa-database'
+                    image 'cpa-database'
                 }
             }
             steps{
