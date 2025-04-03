@@ -1,5 +1,5 @@
 # Installing Jenkins using docker-compose.yaml
-version: '3.7'
+# version: '3.7'
 
 services:
   # jenkins-docker:
@@ -45,6 +45,14 @@ services:
     build: ./CPA-API/
     # ports:
     #   - "5507:5507"
+  sql-server:
+    image: mcr.microsoft.com/mssql/server
+    container_name: sql_server
+    environment:
+      SA_PASSWORD: passwordpassword
+      ACCEPT_EULA: Y
+    ports:
+      - "5505:5505"
 
 networks:
   jenkins:
