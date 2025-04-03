@@ -23,6 +23,7 @@ services:
     image: docker-jenkins
     container_name: docker-jenkins
     restart: on-failure
+    privileged: true
     environment:
       - DOCKER_HOST=tcp://docker:2376
       - DOCKER_CERT_PATH=/certs/client
