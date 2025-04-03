@@ -1,5 +1,29 @@
-docker compose up
-
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    docker.image('docker-jenkins:latest').inside {
+                        // Commands to run inside the Docker container
+                        sh 'echo Building inside Docker'
+                        sh 'docker compose up'
+                    }
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    docker.image('docker-jenkins:latest').inside {
+                        // Run tests inside the Docker container
+                        sh 'npm test'
+                    }
+                }
+            }
+        }
+    }
+}
 // pipeline {
 //     agent any 
 
